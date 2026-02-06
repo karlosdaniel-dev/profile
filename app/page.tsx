@@ -22,12 +22,15 @@ export default function Resume() {
                 />
               </div>
 
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-1 sm:gap-2">
                 <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">
                   Karlos Daniel
                 </h1>
                 <p className="text-xl text-blue-400 font-semibold mb-3">Desenvolvedor Full Stack</p>
                 <p className="text-slate-300 text-sm sm:text-base max-w-lg leading-relaxed opacity-90">
+                  Desenvolvedor FrontEnd | ReactJs | Javascript | Tailwind
+                </p>
+                <p className='text-sm opacity-90 text-gray-500 '>
                   Especialista em criar Interfaces Modernas & Integração de IA Generativa.
                   Foco em React, TypeScript e soluções SaaS escaláveis que geram valor real.
                 </p>
@@ -155,7 +158,7 @@ export default function Resume() {
         </main>
 
         {/* Rodapé simples */}
-        <footer className="bg-gray-50 p-6 text-center text-gray-400 text-sm border-t border-gray-200">
+        <footer className="bg-gray-50 p-6 text-center text-gray-400 text-sm border-t border-gray-200" suppressHydrationWarning>
           © {new Date().getFullYear()} Karlos Daniel. Desenvolvido com Next.js & Tailwind.
         </footer>
       </div>
