@@ -3,10 +3,16 @@
 import React, { useMemo, useState } from "react";
 import { portfolioContactLinks } from "@/consts/portfolio-data";
 
+type FormState = {
+    name: string;
+    email: string;
+    message: string;
+};
+
 type Status = "idle" | "loading" | "success" | "error";
 
 export function PortfolioContact() {
-    const [formState, setFormState] = useState({
+    const [formState, setFormState] = useState<FormState>({
         name: "",
         email: "",
         message: "",
@@ -17,9 +23,9 @@ export function PortfolioContact() {
 
     const canSubmit = useMemo(() => {
         return (
-            formState.name.trim().length > 1 &&
-            formState.email.trim().length > 5 &&
-            formState.message.trim().length > 5
+            formState.name.trim().length >= 2 &&
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formState.email.trim()) &&
+            formState.message.trim().length >= 10
         );
     }, [formState]);
 
@@ -32,13 +38,12 @@ export function PortfolioContact() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (!canSubmit || status === "loading") return;
+
+        setStatus("loading");
         setErrorMessage(null);
 
-        if (!canSubmit) return;
-
         try {
-            setStatus("loading");
-
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -50,20 +55,21 @@ export function PortfolioContact() {
             if (!res.ok || !data?.ok) {
                 setStatus("error");
                 setErrorMessage(
-                    data?.error || "Não foi possível enviar. Tente novamente."
+                    data?.error ?? "Não foi possível enviar. Tente novamente."
                 );
                 return;
             }
 
             setStatus("success");
             setFormState({ name: "", email: "", message: "" });
-
-            setTimeout(() => setStatus("idle"), 3500);
-        } catch (err) {
+            setTimeout(() => setStatus("idle"), 4000);
+        } catch {
             setStatus("error");
             setErrorMessage("Erro de rede. Verifique sua conexão e tente novamente.");
         }
     };
+
+    const isLoading = status === "loading";
 
     return (
         <section className="bg-white p-8 sm:p-12">
@@ -100,8 +106,9 @@ export function PortfolioContact() {
                     </div>
                 </div>
 
-                {/* Form */}
-                <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Formulário */}
+                <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                    {/* Nome */}
                     <div>
                         <label
                             htmlFor="name"
@@ -116,12 +123,14 @@ export function PortfolioContact() {
                             value={formState.name}
                             onChange={handleChange}
                             required
-                            disabled={status === "loading"}
-                            className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 text-gray-900 disabled:opacity-60"
+                            disabled={isLoading}
+                            autoComplete="name"
+                            className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 text-gray-900 disabled:opacity-60 disabled:bg-slate-50"
                             placeholder="Seu nome"
                         />
                     </div>
 
+                    {/* Email */}
                     <div>
                         <label
                             htmlFor="email"
@@ -136,12 +145,14 @@ export function PortfolioContact() {
                             value={formState.email}
                             onChange={handleChange}
                             required
-                            disabled={status === "loading"}
-                            className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 text-gray-900 disabled:opacity-60"
+                            disabled={isLoading}
+                            autoComplete="email"
+                            className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 text-gray-900 disabled:opacity-60 disabled:bg-slate-50"
                             placeholder="seu-email@exemplo.com"
                         />
                     </div>
 
+                    {/* Mensagem */}
                     <div>
                         <label
                             htmlFor="message"
@@ -156,29 +167,62 @@ export function PortfolioContact() {
                             onChange={handleChange}
                             required
                             rows={4}
-                            disabled={status === "loading"}
-                            className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 resize-none text-gray-900 disabled:opacity-60"
+                            disabled={isLoading}
+                            className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 resize-none text-gray-900 disabled:opacity-60 disabled:bg-slate-50"
                             placeholder="Sua mensagem..."
                         />
                     </div>
 
+                    {/* Botão */}
                     <button
                         type="submit"
-                        disabled={!canSubmit || status === "loading"}
-                        className="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition disabled:opacity-60 disabled:cursor-not-allowed"
+                        disabled={!canSubmit || isLoading}
+                        className="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 active:bg-blue-800 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     >
-                        {status === "loading" ? "Enviando..." : "Enviar mensagem"}
+                        {isLoading ? (
+                            <>
+                                <svg
+                                    className="animate-spin h-4 w-4 text-white"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <circle
+                                        className="opacity-25"
+                                        cx="12"
+                                        cy="12"
+                                        r="10"
+                                        stroke="currentColor"
+                                        strokeWidth="4"
+                                    />
+                                    <path
+                                        className="opacity-75"
+                                        fill="currentColor"
+                                        d="M4 12a8 8 0 018-8v8z"
+                                    />
+                                </svg>
+                                Enviando...
+                            </>
+                        ) : (
+                            "Enviar mensagem"
+                        )}
                     </button>
 
+                    {/* Feedback de sucesso */}
                     {status === "success" && (
-                        <div className="p-4 bg-green-100 border border-green-300 text-green-700 rounded-lg text-sm">
-                            ✓ Mensagem enviada com sucesso! Vou responder em breve.
+                        <div className="p-4 bg-green-50 border border-green-300 text-green-700 rounded-lg text-sm flex items-start gap-2">
+                            <span className="text-green-500 text-base">✓</span>
+                            <span>
+                                Mensagem enviada com sucesso! Vou responder em breve.
+                            </span>
                         </div>
                     )}
 
+                    {/* Feedback de erro */}
                     {status === "error" && (
-                        <div className="p-4 bg-red-100 border border-red-300 text-red-700 rounded-lg text-sm">
-                            ✕ {errorMessage || "Erro ao enviar. Tente novamente."}
+                        <div className="p-4 bg-red-50 border border-red-300 text-red-700 rounded-lg text-sm flex items-start gap-2">
+                            <span className="text-red-500 text-base">✕</span>
+                            <span>{errorMessage ?? "Erro ao enviar. Tente novamente."}</span>
                         </div>
                     )}
                 </form>
