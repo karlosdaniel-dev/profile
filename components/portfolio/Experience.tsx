@@ -6,7 +6,7 @@ import { CheckCircle } from 'lucide-react';
 
 export function PortfolioExperience() {
     return (
-        <section className="bg-slate-50 p-8 sm:p-12">
+        <section className="bg-slate-50 p-2 sm:p-4 break-after-page">
             <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2 border-b pb-2 border-gray-200">
                 🏆 Experiência Profissional
             </h2>

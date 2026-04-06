@@ -9,8 +9,8 @@ function ProjectCard({ project, isFeatured }: { project: ProjectData; isFeatured
 
     return (
         <div
-            className={`bg-white rounded-lg border shadow-sm hover:shadow-lg transition-all overflow-hidden relative ${isFeatured
-                    ? 'border-2 border-yellow-400 shadow-yellow-100'
+            className={`my-2 bg-white rounded-lg border shadow-sm hover:shadow-lg transition-all overflow-hidden relative ${isFeatured
+                    ? 'border-2 border-yellow-400 shadow-yellow-100 break-after-page'
                     : 'border-gray-200 hover:border-gray-300'
                 }`}
         >
@@ -112,7 +112,7 @@ function ProjectCard({ project, isFeatured }: { project: ProjectData; isFeatured
 
 export function PortfolioProjects() {
     return (
-        <section className="bg-white p-8 sm:p-12">
+        <section className="bg-white p-2 sm:p-4">
             <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2 border-b pb-2 border-gray-200">
                 💼 Projetos em Destaque
             </h2>

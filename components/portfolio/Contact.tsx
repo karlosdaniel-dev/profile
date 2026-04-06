@@ -72,12 +72,12 @@ export function PortfolioContact() {
     const isLoading = status === "loading";
 
     return (
-        <section className="bg-white p-8 sm:p-12">
+        <section className="bg-white p-2 sm:p-4 ">
             <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2 border-b pb-2 border-gray-200">
                 💬 Vamos Conversar?
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 print:grid-cols-1">
                 {/* Links de contato */}
                 <div className="space-y-4">
                     <p className="text-base text-gray-700 leading-relaxed">
@@ -85,7 +85,7 @@ export function PortfolioContact() {
                         e execução podem agregar valor ao seu time.
                     </p>
 
-                    <div className="space-y-3">
+                    <div className="space-y-3 print:flex print:flex-row print:gap-2 print:flex-wrap">
                         {portfolioContactLinks.map((link, index) => (
                             <a
                                 key={index}
@@ -107,7 +107,7 @@ export function PortfolioContact() {
                 </div>
 
                 {/* Formulário */}
-                <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                <form onSubmit={handleSubmit} className="space-y-4 print:hidden" noValidate>
                     {/* Nome */}
                     <div>
                         <label
