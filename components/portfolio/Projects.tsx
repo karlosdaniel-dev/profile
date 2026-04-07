@@ -112,7 +112,7 @@ function ProjectCard({ project, isFeatured }: { project: ProjectData; isFeatured
 
 export function PortfolioProjects() {
     return (
-        <section className="bg-white p-2 sm:p-4">
+        <section className="bg-white p-2 sm:p-4 break-after-page">
             <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2 border-b pb-2 border-gray-200">
                 💼 Projetos em Destaque
             </h2>
