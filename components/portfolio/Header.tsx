@@ -4,7 +4,11 @@ import React from 'react';
 import { Github, Linkedin, Mail, Globe, Code2, Link as LinkIcon } from 'lucide-react';
 import Image from 'next/image';
 
+import {useTranslations} from 'next-intl';
+
 export function PortfolioHeader() {
+    const t = useTranslations('Header');
+    
     return (
         <header className="bg-slate-900 text-white p-2 sm:p-4 relative overflow-hidden">
             <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -28,13 +32,12 @@ export function PortfolioHeader() {
                         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">
                             Karlos Sodre
                         </h1>
-                        <p className="text-xl text-blue-400 font-semibold mb-3">Desenvolvedor Full Stack</p>
+                        <p className="text-xl text-blue-400 font-semibold mb-3">{t('role')}</p>
                         <p className="text-slate-300 text-sm sm:text-base max-w-lg leading-relaxed opacity-90">
                             React | TypeScript | JavaScript | Node.js | Architecture
                         </p>
                         <p className="text-sm opacity-90 text-gray-400">
-                            Especialista em criar Arquiteturas Escaláveis & Aprendizado Rápido de Domínios Novos.
-                            Foco em React, TypeScript e soluções sustentáveis que geram valor real.
+                            {t('description')}
                         </p>
                     </div>
                 </div>

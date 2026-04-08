@@ -2,6 +2,7 @@
 
 import React, { useMemo, useState } from "react";
 import { portfolioContactLinks } from "@/consts/portfolio-data";
+import {useTranslations} from "next-intl";
 
 type FormState = {
     name: string;
@@ -12,6 +13,8 @@ type FormState = {
 type Status = "idle" | "loading" | "success" | "error";
 
 export function PortfolioContact() {
+    const t = useTranslations('Contact');
+
     const [formState, setFormState] = useState<FormState>({
         name: "",
         email: "",
@@ -55,7 +58,7 @@ export function PortfolioContact() {
             if (!res.ok || !data?.ok) {
                 setStatus("error");
                 setErrorMessage(
-                    data?.error ?? "Não foi possível enviar. Tente novamente."
+                    data?.error ?? t('errors.sendFailed')
                 );
                 return;
             }
@@ -65,7 +68,7 @@ export function PortfolioContact() {
             setTimeout(() => setStatus("idle"), 4000);
         } catch {
             setStatus("error");
-            setErrorMessage("Erro de rede. Verifique sua conexão e tente novamente.");
+            setErrorMessage(t('errors.network'));
         }
     };
 
@@ -74,15 +77,14 @@ export function PortfolioContact() {
     return (
         <section className="bg-white p-2 sm:p-4 ">
             <h2 className="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2 border-b pb-2 border-gray-200">
-                💬 Vamos Conversar?
+                {t('title')}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 print:grid-cols-1">
                 {/* Links de contato */}
                 <div className="space-y-4">
                     <p className="text-base text-gray-700 leading-relaxed">
-                        Adoraria entender como minhas habilidades de colaboração, arquitetura
-                        e execução podem agregar valor ao seu time.
+                        {t('intro')}
                     </p>
 
                     <div className="space-y-3 print:flex print:flex-row print:gap-2 print:flex-wrap">
@@ -96,7 +98,7 @@ export function PortfolioContact() {
                             >
                                 <span className="text-3xl">{link.icon}</span>
                                 <div>
-                                    <p className="text-xs text-gray-500">{link.label}</p>
+                                    <p className="text-xs text-gray-500">{t(`links.${link.id}`)}</p>
                                     <p className="text-gray-900 font-semibold text-sm">
                                         {link.value}
                                     </p>
@@ -114,7 +116,7 @@ export function PortfolioContact() {
                             htmlFor="name"
                             className="block text-sm font-semibold text-gray-900 mb-2"
                         >
-                            Nome
+                            {t('form.name.label')}
                         </label>
                         <input
                             type="text"
@@ -126,7 +128,7 @@ export function PortfolioContact() {
                             disabled={isLoading}
                             autoComplete="name"
                             className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 text-gray-900 disabled:opacity-60 disabled:bg-slate-50"
-                            placeholder="Seu nome"
+                            placeholder={t('form.name.placeholder')}
                         />
                     </div>
 
@@ -136,7 +138,7 @@ export function PortfolioContact() {
                             htmlFor="email"
                             className="block text-sm font-semibold text-gray-900 mb-2"
                         >
-                            Email
+                            {t('form.email.label')}
                         </label>
                         <input
                             type="email"
@@ -148,7 +150,7 @@ export function PortfolioContact() {
                             disabled={isLoading}
                             autoComplete="email"
                             className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 text-gray-900 disabled:opacity-60 disabled:bg-slate-50"
-                            placeholder="seu-email@exemplo.com"
+                            placeholder={t('form.email.placeholder')}
                         />
                     </div>
 
@@ -158,7 +160,7 @@ export function PortfolioContact() {
                             htmlFor="message"
                             className="block text-sm font-semibold text-gray-900 mb-2"
                         >
-                            Mensagem
+                            {t('form.message.label')}
                         </label>
                         <textarea
                             id="message"
@@ -169,7 +171,7 @@ export function PortfolioContact() {
                             rows={4}
                             disabled={isLoading}
                             className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 resize-none text-gray-900 disabled:opacity-60 disabled:bg-slate-50"
-                            placeholder="Sua mensagem..."
+                            placeholder={t('form.message.placeholder')}
                         />
                     </div>
 
@@ -201,10 +203,10 @@ export function PortfolioContact() {
                                         d="M4 12a8 8 0 018-8v8z"
                                     />
                                 </svg>
-                                Enviando...
+                                {t('form.submit.sending')}
                             </>
                         ) : (
-                            "Enviar mensagem"
+                            t('form.submit.idle')
                         )}
                     </button>
 
@@ -213,7 +215,7 @@ export function PortfolioContact() {
                         <div className="p-4 bg-green-50 border border-green-300 text-green-700 rounded-lg text-sm flex items-start gap-2">
                             <span className="text-green-500 text-base">✓</span>
                             <span>
-                                Mensagem enviada com sucesso! Vou responder em breve.
+                                {t('feedback.success')}
                             </span>
                         </div>
                     )}
@@ -222,7 +224,7 @@ export function PortfolioContact() {
                     {status === "error" && (
                         <div className="p-4 bg-red-50 border border-red-300 text-red-700 rounded-lg text-sm flex items-start gap-2">
                             <span className="text-red-500 text-base">✕</span>
-                            <span>{errorMessage ?? "Erro ao enviar. Tente novamente."}</span>
+                            <span>{errorMessage ?? t('errors.generic')}</span>
                         </div>
                     )}
                 </form>

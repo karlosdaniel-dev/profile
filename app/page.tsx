@@ -1,6 +1,6 @@
-import React from "react";
-import PortfolioPage from "./portfolio/page";
+import {redirect} from 'next/navigation';
 
-export default function App() {
-    return <PortfolioPage />;
+export default function RootPage() {
+  redirect('/pt');
 }
+

@@ -1,0 +1,179 @@
+{
+    "Header": {
+        "role": "Full Stack Developer",
+        "description": "Expert in building Scalable Architectures & Fast Learner of new domains. Focused on React, TypeScript, and sustainable solutions that drive real value."
+    },
+    "Summary": {
+        "title": "📋 Professional Summary",
+        "paragraph1": "I am a full stack developer focused on organization, continuous learning, and building sustainable solutions. Throughout my career, I have worked both in multi-system ecosystems and in highly autonomous environments, taking independent ownership of technical decisions.",
+        "paragraph2": "I have a strong aptitude for understanding new business contexts, designing clean architectures, and delivering systems that are easy to use, maintain, and scale. My foundation combines hands-on experience with a continuous pursuit of deep technical knowledge."
+    },
+    "Portfolio": {
+        "projectsTitle": "💼 Featured Projects",
+        "workStyleTitle": "🧭 Work style",
+        "experienceTitle": "🏢 Experience",
+        "techTitle": "🧰 Tech stack",
+        "Projects": {
+            "system-hub-rpg": {
+                "title": "System Hub RPG - SaaS Platform",
+                "subtitle": "Creator, Software Architect & Full Stack Developer",
+                "description": "Complete Virtual Tabletop (VTT) SaaS platform and RPG campaign management, featuring a scalable, universal rule engine.",
+                "context": "I started this project as a personal challenge to apply and deepen my skills after a period away from the market. The goal was to build a complete solution from scratch, which evolved from helping a friend into a fully functional SaaS.",
+                "challenge": "The biggest challenge was architecting a system complex and flexible enough to support different RPG systems. This required deep data modeling, multiple refactorings, and building a 'Rule Engine' that unifies items, characters, inventories, and lore cohesively.",
+                "action": "Using Next.js, TypeScript, Prisma, and Supabase, I built the entire architecture. I created modules for campaign management, item and component registries, NPC sheets with dynamic inventories, an interactive map with customizable tokens, and a world lore section. The system was designed to be modular and ready for future AI integrations.",
+                "result": "System Hub RPG became my most comprehensive project, validating my ability to take a SaaS product from idea to execution. The architecture allows for the creation of dynamic universes and is currently evolving to include generative AI that will assist in creating items, sheets, and side-quests based on the lore of each campaign.",
+                "shortPhrase": "Conceived and developed a Virtual Tabletop (VTT) and RPG campaign management SaaS platform from scratch, focusing on a universal and scalable rule engine."
+            },
+            "dre-compta": {
+                "title": "Financial Dashboard & P&L Statement",
+                "subtitle": "Rapid understanding of business rules + scalable architecture",
+                "description": "Financial dashboard system with P&L (Profit and Loss) generation for an accounting firm.",
+                "context": "I joined the project with no prior experience in accounting and had to quickly understand the logic of P&L statements, financial indicators, and how this information needed to be organized within the system.",
+                "challenge": "Besides learning a new domain in a short time, I was the sole developer at the company. This required not only implementing the solution but also making architectural decisions, choosing technologies, and ensuring scalability and future maintainability.",
+                "action": "In less than 3 months, I managed to absorb the necessary business rules, structure the financial dashboard, and organize the solution so the system would be user-friendly for the client and easy to scale for future developers.",
+                "result": "The project became a major turning point in my career because it showcased my ability to learn complex domains rapidly, translate them into a product, and build a clean foundation for the system's growth.",
+                "shortPhrase": "Learned applied accounting for P&L statements in less than 3 months and transformed that understanding into a scalable, highly maintainable dashboard."
+            },
+            "ia-sistema": {
+                "title": "AI Integrated Navigation & Automation",
+                "subtitle": "Self-taught learning + practical functionality",
+                "description": "AI integration capable of interacting with the system, changing screens, modifying filters, and generating automated reports.",
+                "context": "During the development of the Compta system, I identified an opportunity to explore AI practically, going beyond generic responses to seek useful integration with the application.",
+                "challenge": "I had never implemented this kind of solution before. The challenge was to study on my own, understand how to integrate AI into the system's workflow, and make it execute genuinely relevant actions.",
+                "action": "I developed an integration where the AI could interact with the software, navigating through screens, modifying filters, generating short reports, and sending results via email.",
+                "result": "This experience reinforced my ability to learn autonomously, quickly apply new technologies, and turn technical curiosity into real product value.",
+                "shortPhrase": "Implemented an AI capable of interacting with the system interface, changing filters, generating reports, and automating email dispatch."
+            },
+            "ecossistema-buildings": {
+                "title": "Component-Sharing System Ecosystem",
+                "subtitle": "Full stack foundation built over 7 years",
+                "description": "Structuring and evolving an ecosystem of systems that shared components while preserving their individual requirements.",
+                "context": "At Buildings, I worked for about 7 years in a small team environment where developers had to handle frontend, backend, databases, and integrations.",
+                "challenge": "Maintaining consistency and component reusability across several different systems, each with its own specific customizations, without causing duplication or excessive rigidity.",
+                "action": "I directly participated in the creation and evolution of various websites and systems, working with JavaScript, TypeScript, React, PHP, database modeling, SQL, and APIs. I helped build a framework capable of sustaining a broad ecosystem.",
+                "result": "This experience consolidated my full-stack vision and my strong focus on consistency, reusability, and architectural scalability in products.",
+                "shortPhrase": "Helped structure an ecosystem of systems with reusable components and per-product customization, working across frontend, backend, and databases."
+            }
+        },
+        "Experience": {
+            "compta": {
+                "company": "Compta",
+                "title": "Software Developer / Sole Developer",
+                "period": "2023 - Present",
+                "description": "Acted as the sole developer of the company, taking ownership of the architecture, implementation, and evolution of the accounting system.",
+                "highlights": [
+                    "Structured a financial dashboard focused on P&L, scalability, and user clarity",
+                    "Selected technologies aligned with the company's budget without compromising technical quality",
+                    "Maintained a clean architecture, emphasizing future maintainability and customer experience",
+                    "Developed an AI integration capable of modifying filters, interacting with screens, generating reports, and automating emails",
+                    "Learned applied accounting in less than 3 months"
+                ]
+            },
+            "buildings": {
+                "company": "Buildings",
+                "title": "Full Stack Developer",
+                "period": "2016 - 2023 (~7 years)",
+                "description": "Full stack role in a small-sized company, participating in frontend, backend, database modeling, and API development.",
+                "highlights": [
+                    "Development using JavaScript, TypeScript, React, and PHP",
+                    "Creation and evolution of various websites and internal systems",
+                    "Participation in database modeling and complex SQL query construction",
+                    "Assisted in creating a system ecosystem utilizing shared components",
+                    "Worked in a fast-paced environment requiring versatility and autonomy"
+                ]
+            }
+        },
+        "WorkStyle": {
+            "learning": {
+                "title": "Fast Learner",
+                "description": "I can step into new contexts, grasp business rules, and rapidly transform that knowledge into practical solutions."
+            },
+            "architecture": {
+                "title": "Clean Architecture",
+                "description": "I like to structure systems so they are intuitive for the user and sustainable for whoever maintains the code."
+            },
+            "autonomy": {
+                "title": "Autonomy with Responsibility",
+                "description": "I have extensive experience independently taking ownership of technical decisions, prioritization, and stack choices in real-world scenarios."
+            },
+            "focus": {
+                "title": "Focus on Real-World Usage",
+                "description": "I don't just think about getting the code to work; I think about how the system will be used, understood, and expanded."
+            },
+            "curiosity": {
+                "title": "Applied Curiosity",
+                "description": "I seek to learn new technologies in depth and apply them in useful, production-ready ways, rather than just experimenting."
+            },
+            "consistency": {
+                "title": "Consistency in Delivery",
+                "description": "I work with method, organization, and persistence to ensure stable and well-built solutions."
+            }
+        },
+        "TechCategories": {
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "database": "Databases",
+            "others": "Others"
+        }
+    },
+    "UI": {
+        "context": "Context",
+        "challenge": "Challenge",
+        "action": "My Role",
+        "result": "Result",
+        "closeDetails": "Close details",
+        "viewDetails": "View full details",
+        "accessApp": "Go to App"
+    },
+    "About": {
+        "title": "👨‍💻 About Me",
+        "paragraph1": "I have a naturally collaborative and patient profile, oriented towards building stable solutions. At the same time, the professional environment has led me to develop a more assertive and practical approach to decision-making.",
+        "paragraph2": "I like to understand the logic behind things, study new contexts, and organize systems clearly, both for the user and the technical team. This combination of calm, structure, and adaptability defines how I work today.",
+        "paragraph3": "In my free time, I enjoy exploring new technologies, solving technical problems, and learning about different business domains.",
+        "differentiatorsTitle": "My Key Differentiators",
+        "differentiators": [
+            "Fast learner in new contexts",
+            "Persistence when facing complex problems",
+            "Organization and architectural clarity",
+            "Autonomy to learn and implement",
+            "Focus on useful and sustainable solutions",
+            "Clear communication with technical and non-technical stakeholders"
+        ]
+    }
+    ,
+    "Contact": {
+        "title": "💬 Let’s talk",
+        "intro": "I’d love to understand how my collaboration, architecture and execution skills can add value to your team.",
+        "links": {
+            "email": "Email",
+            "linkedin": "LinkedIn",
+            "github": "GitHub"
+        },
+        "form": {
+            "name": {
+                "label": "Name",
+                "placeholder": "Your name"
+            },
+            "email": {
+                "label": "Email",
+                "placeholder": "your-email@example.com"
+            },
+            "message": {
+                "label": "Message",
+                "placeholder": "Your message..."
+            },
+            "submit": {
+                "idle": "Send message",
+                "sending": "Sending..."
+            }
+        },
+        "feedback": {
+            "success": "Message sent successfully! I’ll get back to you soon."
+        },
+        "errors": {
+            "generic": "Failed to send. Please try again.",
+            "sendFailed": "Could not send. Please try again.",
+            "network": "Network error. Please check your connection and try again."
+        }
+    }
+}

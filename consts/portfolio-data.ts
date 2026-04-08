@@ -25,6 +25,7 @@ export interface ExperienceData {
 }
 
 export interface WorkStyleItem {
+    id: string;
     title: string;
     description: string;
     icon: string;
@@ -171,38 +172,46 @@ export const portfolioExperience: ExperienceData[] = [
     },
 ];
 
+
+
 export const portfolioWorkStyle: WorkStyleItem[] = [
     {
+        id: "learning",
         title: "Aprendizado rápido",
         description:
             "Consigo entrar em contextos novos, entender regras de negócio e transformar esse conhecimento em solução prática com rapidez.",
         icon: "🎯",
     },
     {
+        id: "architecture",
         title: "Arquitetura limpa",
         description:
             "Gosto de estruturar sistemas para que sejam claros para o usuário e sustentáveis para quem vai manter o código.",
         icon: "🏗️",
     },
     {
+        id: "autonomy",
         title: "Autonomia com responsabilidade",
         description:
             "Tenho experiência assumindo sozinho decisões técnicas, priorização e escolhas de stack em cenários reais.",
         icon: "💪",
     },
     {
+        id: "focus",
         title: "Foco no uso real",
         description:
             "Não penso só no código funcionando, mas em como o sistema será usado, entendido e expandido.",
         icon: "👥",
     },
     {
+        id: "curiosity",
         title: "Curiosidade aplicada",
         description:
             "Busco aprender novas tecnologias com profundidade e aplicá-las de forma útil, e não apenas experimental.",
         icon: "🔬",
     },
     {
+        id: "consistency",
         title: "Consistência na entrega",
         description:
             "Trabalho com método, organização e persistência para garantir soluções estáveis e bem construídas.",
@@ -212,6 +221,7 @@ export const portfolioWorkStyle: WorkStyleItem[] = [
 
 export const portfolioTechStack = [
     {
+        id: "frontend",
         name: "Frontend",
         technologies: [
             "React",
@@ -223,14 +233,17 @@ export const portfolioTechStack = [
         ],
     },
     {
+        id: "backend",
         name: "Backend",
         technologies: ["Node.js", "Express", "PHP", "APIs REST", "Integrações"],
     },
     {
+        id: "database",
         name: "Banco de dados",
         technologies: ["PostgreSQL", "MySQL", "SQL", "Modelagem de dados"],
     },
     {
+        id: "others",
         name: "Outros",
         technologies: [
             "Arquitetura de sistemas",
@@ -244,18 +257,21 @@ export const portfolioTechStack = [
 
 export const portfolioContactLinks = [
     {
+        id: "email",
         label: "Email",
         value: "karlosdanielalvessodres@gmail.com",
         href: "mailto:karlosdanielalvessodre@gmail.com",
         icon: "✉️",
     },
     {
+        id: "linkedin",
         label: "LinkedIn",
         value: "linkedin.com/in/karlos-daniel",
         href: "https://www.linkedin.com/in/karlos-daniel/",
         icon: "💼",
     },
     {
+        id: "github",
         label: "GitHub",
         value: "github.com/karlosdaniel-dev",
         href: "https://github.com/karlosdaniel-dev",
