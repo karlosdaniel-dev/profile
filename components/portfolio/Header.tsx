@@ -29,7 +29,7 @@ export function PortfolioHeader() {
 
                     {/* Textos */}
                     <div className="flex flex-col gap-1 sm:gap-2">
-                        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">
+                        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-2 bg-clip-text bg-gradient-to-r from-white to-slate-300">
                             Karlos Sodre
                         </h1>
                         <p className="text-xl text-blue-400 font-semibold mb-3">{t('role')}</p>
